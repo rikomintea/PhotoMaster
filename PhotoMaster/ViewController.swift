@@ -16,8 +16,10 @@ class ViewController:UIViewController,UINavigationControllerDelegate,UIImagePick
     }
 
     @IBAction func onTappedcameraButton(){
+        presentPickerContoroller(sourceType: .camera)
     }
     @IBAction func onTappedAlbumButton(){
+        presentPickerContoroller(sourceType: .photoLibrary)
     }
     
     
@@ -30,7 +32,7 @@ class ViewController:UIViewController,UINavigationControllerDelegate,UIImagePick
         }
     }
     
-    func imagePickerController(_picker:UIImagePickerController,
+    func imagePickerController(_ picker:UIImagePickerController,
                                didFinishPickingMediaWithInfo info:[UIImagePickerController.InfoKey:Any]){
     
     self.dismiss(animated: true,completion: nil)
@@ -39,6 +41,7 @@ class ViewController:UIViewController,UINavigationControllerDelegate,UIImagePick
     }
                                
     func drawText(image:UIImage) ->UIImage{
+        
         
         let text = "LifeisTech!"
         
@@ -62,10 +65,10 @@ class ViewController:UIViewController,UINavigationControllerDelegate,UIImagePick
         return newImage!
     }
     
-    func drawMaskImage(image:UIImage) ->UIImage{
+    func drawMaskImage(image: UIImage) -> UIImage {
         
-        let maskImage = UIImage(named: " fro_ducky")!
-        
+        let maskImage = UIImage(named: "furo_ducky")!
+    
         UIGraphicsBeginImageContext(image.size)
         
         image.draw(in: CGRect(x:0, y:0, width: image.size.width, height: image.size.height))
